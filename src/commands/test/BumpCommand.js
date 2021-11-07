@@ -33,7 +33,7 @@ module.exports = class TestCommand extends BaseCommand {
 
     let bumpedTime = currentGuild.guildTime;
     let currentTime = Date.now();
-    let cooldown = 10 * 1000;
+    let cooldown = 7200 * 1000;
     let bumped = Math.round(bumpedTime);
   
     //message.channel.send(`${result1 - cool}`);
