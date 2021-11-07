@@ -44,6 +44,6 @@ mongoose.connect("mongodb+srv://Ohsusu:Bikavalu1234@cluster0.zizdt.mongodb.net/M
 
   await registerCommands(client, '../commands');
   await registerEvents(client, '../events');
-  await client.login("ODk5Njg1NzkyMzU0NTM3NTAz.YW2XsA.XNeCSrupt4yOgZWBOdT1Pi-YMFw");
+  await client.login(process.env.DISCORD_TOKEN);
 })();
 
