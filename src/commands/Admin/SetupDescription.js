@@ -13,6 +13,10 @@ module.exports = class TestCommand extends BaseCommand {
 
         let guildDescription = args.slice(1).join(" ");
 
+        if (!message.member.permissions.has("BAN_MEMBERS")) {
+            return;
+        }
+
         const System = new MessageEmbed()
         .setColor(client.colors.error)
         .setAuthor(`Failed`, client.user.displayAvatarURL({ dynamic: true }))
