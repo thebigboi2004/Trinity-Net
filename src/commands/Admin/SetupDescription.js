@@ -27,7 +27,8 @@ module.exports = class TestCommand extends BaseCommand {
         } 
 
         if (guildDescription.length > 200) {
-            System.setDescription(`${message.author}, description cannot be longer than 200 characters! Please try again!`)
+            System.setDescription(`${message.author}, description cannot be longer than 200 characters! Please try again!`);
+            return message.channel.send({ embeds: [System]});
         }
 
         GuildSchema.findOne({ guildID: message.guild.id }, async(err, data) => {
