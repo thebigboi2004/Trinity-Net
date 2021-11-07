@@ -1,0 +1,6 @@
+{
+  "name": "Bot",
+  "language": "javascript",
+  "manager": "npm",
+  "prefix": "^"
+}
