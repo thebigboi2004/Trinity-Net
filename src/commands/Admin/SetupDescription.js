@@ -11,7 +11,7 @@ module.exports = class TestCommand extends BaseCommand {
 
     async run(client, message, args) {
 
-        let guildDescription = args.slice(1).join(" ");
+        let guildDescription = args.slice(0).join(" ");
 
         if (!message.member.permissions.has("ADMINISTRATOR")) {
             return;
