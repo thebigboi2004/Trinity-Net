@@ -6,7 +6,7 @@ const GuildSchema = require('../../database');
 
 module.exports = class TestCommand extends BaseCommand {
     constructor() {
-      super('description', 'Admin', []);
+      super('banner', 'Admin', []);
     }
 
     async run(client, message, args) {

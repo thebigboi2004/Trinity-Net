@@ -67,7 +67,8 @@ module.exports = class TestCommand extends BaseCommand {
             title: message.guild.name,
             description: currentGuild.guildDescription,
             invite: currentGuild.guildInvite,
-            thumbnail: message.guild.iconURL()
+            thumbnail: message.guild.iconURL(),
+            banner: currentGuild.guildBanner
           }, guildChannel);
         })
       });
@@ -92,7 +93,8 @@ module.exports = class TestCommand extends BaseCommand {
                 title: message.guild.name,
                 description: currentGuild.guildDescription,
                 invite: currentGuild.guildInvite,
-                thumbnail: message.guild.iconURL()
+                thumbnail: message.guild.iconURL(),
+                banner: currentGuild.guildBanner
               }, guildChannel);
             })
         })
