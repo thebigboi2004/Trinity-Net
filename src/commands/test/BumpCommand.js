@@ -69,10 +69,9 @@ module.exports = class TestCommand extends BaseCommand {
             invite: currentGuild.guildInvite,
             thumbnail: message.guild.iconURL()
           }, guildChannel);
-
-          message.channel.send({ embeds: [System]});
         })
       });
+      message.channel.send({ embeds: [System]});
       return;
     }
     
@@ -95,10 +94,9 @@ module.exports = class TestCommand extends BaseCommand {
                 invite: currentGuild.guildInvite,
                 thumbnail: message.guild.iconURL()
               }, guildChannel);
-
-                message.channel.send({ embeds: [System]});
             })
         })
+      message.channel.send({ embeds: [System]});
     } else {
         const System1 = new MessageEmbed()
         .setColor(client.colors.error)
