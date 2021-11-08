@@ -12,6 +12,7 @@ const guildSchema = mongoose.Schema({
     guildDescription: String,
     guildChannel: String,
     guildInvite: String,
+    guildBanner: String,
     guildTime: { 
         type: String,
         default: 0

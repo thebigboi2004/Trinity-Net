@@ -11,7 +11,7 @@ module.exports = class TestCommand extends BaseCommand {
 
     async run(client, message, args) {
 
-        let guildDescription = args.slice(0).join(" ");
+        let guildBanner = args.slice(0).join(" ");
 
         if (!message.member.permissions.has("ADMINISTRATOR")) {
             return;
@@ -21,14 +21,11 @@ module.exports = class TestCommand extends BaseCommand {
         .setColor(client.colors.error)
         .setAuthor(`Failed`, client.user.displayAvatarURL({ dynamic: true }))
 
-        if(!guildDescription) {
-            System.setDescription(`${message.author}, please specify description for your server!`);
+        if(!guildBanner) {
+            System.setDescription(`${message.author}, please specify a banner for your server!`);
             return message.channel.send({ embeds: [System]});      
         } 
 
-        if (guildDescription.length > 200) {
-            System.setDescription(`${message.author}, description cannot be longer than 200 characters! Please try again!`)
-        }
 
         GuildSchema.findOne({ guildID: message.guild.id }, async(err, data) => {
             if(!data) {
@@ -39,7 +36,7 @@ module.exports = class TestCommand extends BaseCommand {
                 message.channel.send({ embeds: [System1]});
             } else {
                 await data.updateOne({
-                    guildDescription
+                    guildBanner
                 });
 
                 const System1 = new MessageEmbed()
