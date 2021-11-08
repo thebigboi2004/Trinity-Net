@@ -60,16 +60,27 @@ module.exports = class TestCommand extends BaseCommand {
         data.map(({ guildChannel }) => {
           if (!guildChannel) return;
           if (guildChannel === currentGuild.guildChannel) return;
-
           
-          client.bumpEmbed({
-            color: "BLUE",
-            title: message.guild.name,
-            description: currentGuild.guildDescription,
-            invite: currentGuild.guildInvite,
-            thumbnail: message.guild.iconURL(),
-            banner: currentGuild.guildBanner
-          }, guildChannel);
+
+          if (!guildBanner) {
+            client.bumpEmbedWithBanner({
+              color: "BLUE",
+              title: message.guild.name,
+              description: currentGuild.guildDescription,
+              invite: currentGuild.guildInvite,
+              thumbnail: message.guild.iconURL(),
+              banner: currentGuild.guildBanner
+            });
+            
+          } else {
+            client.bumpEmbed({
+              color: "BLUE",
+              title: message.guild.name,
+              description: currentGuild.guildDescription,
+              invite: currentGuild.guildInvite,
+              thumbnail: message.guild.iconURL(),
+            }, guildChannel);
+          }
         })
       });
       message.channel.send({ embeds: [System]});

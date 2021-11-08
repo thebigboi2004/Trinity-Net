@@ -29,7 +29,18 @@ mongoose.connect("mongodb+srv://Ohsusu:Bikavalu1234@cluster0.zizdt.mongodb.net/M
   client.events = new Map();
   client.prefix = config.prefix;
 
-  client.bumpEmbed = function({color, title, description, invite, thumbnail, banner}, channel) {
+  client.bumpEmbed = function({color, title, description, invite, thumbnail}, channel) {
+    const System = new MessageEmbed()
+    .setColor(color)
+    .setTitle(`${title}`)
+    .setThumbnail(thumbnail)
+    .setDescription(`${description}`)
+    .setFooter(`Trinity Network`, client.user.displayAvatarURL());
+    
+    client.channels.cache.get(channel).send({content: `${invite}`, embeds: [System]});
+  };
+
+  client.bumpEmbedWithBanner = function({color, title, description, invite, thumbnail, banner}, channel) {
     const System = new MessageEmbed()
     .setColor(color)
     .setTitle(`${title}`)
