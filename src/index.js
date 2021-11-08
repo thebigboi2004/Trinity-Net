@@ -45,11 +45,11 @@ mongoose.connect("mongodb+srv://Ohsusu:Bikavalu1234@cluster0.zizdt.mongodb.net/M
     .setColor(color)
     .setTitle(`${title}`)
     .setThumbnail(thumbnail)
-    .setImage(`${banner}`)
     .setDescription(`${description}`)
     .setFooter(`Trinity Network`, client.user.displayAvatarURL());
     
     client.channels.cache.get(channel).send({content: `${invite}`, embeds: [System]});
+    client.channels.cache.get(channel).send(`${banner}`);
 
     
   }
